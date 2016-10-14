@@ -1,0 +1,51 @@
+.demo-card-image.mdl-card {
+  height: 256px;
+  width: 256px;
+  margin: 1rem auto;
+}
+
+.demo-card-image.mdl-card.card-need {
+  background: #ff0000 url('../images/ask.png') center;
+}
+
+.demo-card-image.mdl-card.card-have {
+  background: #00a600 url('../images/give.png') center / cover;
+}
+
+.card-button {
+  width: 256px;
+  margin: 1rem auto;
+}
+
+.card-button button {
+  width: 100%;
+}
+
+.demo-card-image.mdl-card.card-category {
+  background: #ffffff center / cover;
+}
+
+.demo-card-image > .mdl-card__actions {
+  height: 52px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.7);
+  text-align: center;
+}
+
+.demo-card-image__text {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+}
+
+.card-container .mdl-card {
+  flex-basis: 50%;
+  width: 128px;
+  height: 128px;
+}
