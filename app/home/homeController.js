@@ -5,12 +5,13 @@
 
   app.controller('homeController', function ($location) {
     this.vm = {};
+    var vm = this.vm;
 
-    this.vm.need = function () {
+    vm.need = function () {
       $location.url('need');
     };
 
-    this.vm.have = function () {
+    vm.have = function () {
       $location.url('have');
     };
   });

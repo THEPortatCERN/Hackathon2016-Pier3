@@ -1,1 +1,23 @@
-<div>I Have</div>
+<div class="mdl-layout mdl-js-layout">
+  <main class="mdl-layout__content">
+    <section class="section--center">
+      <div class="card-container">
+        <div class="demo-card-image mdl-card mdl-shadow--2dp card-category" ng-repeat="item in have.vm.mainItems"
+             ng-class="item.icon" ng-style="have.vm.iconPath(item.icon)">
+          <div class="mdl-card__title mdl-card--expand"></div>
+          <div class="mdl-card__actions">
+            <span class="demo-card-image__text">{{item.name}}</span>
+          </div>
+        </div>
+      </div>
+
+      <ul class="demo-list-item mdl-list">
+        <li class="mdl-list__item" ng-repeat="item in have.vm.secondaryItems">
+          <span class="mdl-list__item-primary-content">
+            {{item.name}}
+          </span>
+        </li>
+      </ul>
+    </section>
+  </main>
+</div>

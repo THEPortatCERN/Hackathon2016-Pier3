@@ -10,6 +10,11 @@
         controller: 'loginController',
         controllerAs: 'login'
       })
+      .when('/register', {
+        templateUrl: 'register/register.html',
+        controller: 'registerController',
+        controllerAs: 'register'
+      })
       .when('/home', {
         templateUrl: 'home/home.html',
         controller: 'homeController',

@@ -5,17 +5,18 @@
 
   app.controller('needCategoryController', function ($routeParams) {
     this.vm = {};
+    var vm = this.vm;
 
-    this.vm['food-water'] = {};
+    vm['food-water'] = {};
 
-    this.vm['food-water'].items = [
+    vm['food-water'].items = [
       {id: 'baby-food', name: 'Baby Food', icon: 'food-water.png'},
       {id: 'food', name: 'Regular Food', icon: 'food-water.png'},
       {id: 'special-food', name: 'Special Food', icon: 'food-water.png'},
       {id: 'water', name: 'Water', icon: 'food-water.png'}
     ];
 
-    this.vm.items = (this.vm[$routeParams.category] || {items: []}).items;
+    vm.items = (this.vm[$routeParams.category] || {items: []}).items;
 
     function imagePath(folder, filename) {
       var path = 'url';
@@ -28,7 +29,7 @@
       return path
     }
 
-    this.vm.iconPath = function (iconName) {
+    vm.iconPath = function (iconName) {
       return {'background-image': imagePath('../images', iconName)};
     }
   });

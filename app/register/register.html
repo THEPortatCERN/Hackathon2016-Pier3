@@ -1,0 +1,39 @@
+<div class="mdl-layout mdl-js-layout">
+  <main class="mdl-layout__content">
+    <section class="section--center form-container">
+      <form ng-submit="register.vm.next(registerForm)" name="registerForm" ng-switch="register.vm.step">
+        <div ng-show="register.vm.step === 1">
+          <div class="mdl-textfield mdl-js-textfield">
+            <label class="mdl-textfield__label" for="username">Username</label>
+            <input class="mdl-textfield__input" type="text" id="username">
+          </div>
+          <div class="mdl-textfield mdl-js-textfield">
+            <label class="mdl-textfield__label" for="password">Password</label>
+            <input class="mdl-textfield__input" type="password" id="password">
+          </div>
+          <div class="mdl-textfield mdl-js-textfield">
+            <label class="mdl-textfield__label" for="password-repeat">Repeat Password</label>
+            <input class="mdl-textfield__input" type="password" id="password-repeat">
+          </div>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">
+            Next
+          </button>
+        </div>
+
+        <div ng-show="register.vm.step === 2">
+          <div class="mdl-textfield mdl-js-textfield">
+            <label class="mdl-textfield__label" for="gender">Gender</label>
+            <input class="mdl-textfield__input" type="text" id="gender">
+          </div>
+          <div class="mdl-textfield mdl-js-textfield">
+            <label class="mdl-textfield__label" for="dob">Date of birth</label>
+            <input class="mdl-textfield__input" type="text" id="dob">
+          </div>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">
+            Next
+          </button>
+        </div>
+      </form>
+    </section>
+  </main>
+</div>

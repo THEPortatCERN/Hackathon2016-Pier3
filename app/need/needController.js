@@ -5,8 +5,9 @@
 
   app.controller('needController', function ($location) {
     this.vm = {};
+    var vm = this.vm;
 
-    this.vm.items = [
+    vm.items = [
       {id: 'food-water', name: 'Food / Water', icon: 'food-water.png'},
       {id: 'shelter', name: 'Shelter', icon: 'shelter.png'},
       {id: 'shelter', name: 'Shelter', icon: 'shelter.png'},
@@ -24,11 +25,11 @@
       return path
     }
 
-    this.vm.iconPath = function (iconName) {
+    vm.iconPath = function (iconName) {
       return {'background-image': imagePath('../images', iconName)};
     };
 
-    this.vm.needCategory = function (categoryId) {
+    vm.needCategory = function (categoryId) {
       $location.url('need/' + categoryId);
     };
   });
