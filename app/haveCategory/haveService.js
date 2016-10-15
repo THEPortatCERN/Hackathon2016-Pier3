@@ -4,12 +4,12 @@
   var app = angular.module('hermitCrabs');
 
   app.factory('haveService', function () {
-    function setObject(key, object) {
-      localStorage.setItem(key, JSON.stringify(object));
+    function setObject(object) {
+      localStorage.setItem('hermit-crabs-donates', JSON.stringify(object));
     }
 
-    function getObject(key) {
-      return JSON.parse(localStorage.getItem(key));
+    function getObject() {
+      return JSON.parse(localStorage.getItem('hermit-crabs-donates')) || [];
     }
 
     function donate(object, amount) {
@@ -17,15 +17,17 @@
       var userId = 1;
 
       // TODO: Server request!
-      var existingRequests = getObject(userId) || {};
-      var withAmount = angular.copy(object);
-      withAmount.amount = amount;
-      withAmount.type = 'donate';
+      var existingRequests = getObject() || [];
 
-      existingRequests[withAmount.id] = withAmount;
+      var donatesObject = angular.copy(object);
+      donatesObject.amount = amount;
+      donatesObject.type = 'donate';
+      donatesObject.userId = userId;
 
-      setObject(userId, existingRequests);
-      return withAmount;
+      existingRequests.push(donatesObject);
+
+      setObject(existingRequests);
+      return donatesObject;
     }
 
     function removeDonate(object) {
@@ -33,36 +35,28 @@
       var userId = 1;
 
       // TODO: Server request!
-      var existingRequests = getObject(userId) || {};
-      if (object.type === 'donate') {
-        delete existingRequests[object.id];
-      }
+      var existingRequests = getObject() || [];
 
-      setObject(userId, existingRequests);
+      var newRequests = existingRequests.filter((item) => {
+        return item.userId !== userId || item.id !== object.id
+      });
+
+      setObject(newRequests);
     }
 
     function donates(object) {
       // TODO: user id should be stored in a constant/service.
       var userId = 1;
 
-      // TODO: Server request!
-      if (!getObject(userId) || !getObject(userId)[object.id] || getObject(userId)[object.id].type !== 'donate') {
-        return null;
-      }
-      return getObject(userId)[object.id];
+      return getObject().filter((item) => item.userId === userId && item.id === object.id && item.type === 'donate')[0];
     }
 
     function userDonates() {
       // TODO: user id should be stored in a constant/service.
       var userId = 1;
 
-      // TODO: Server request!
-      if (!getObject(userId)) {
-        return [];
-      }
-
-      var donates = getObject(userId);
-      return Object.keys(donates).filter((key) => donates[key].type === 'donate').map((key) => donates[key]);
+      var needs = getObject(userId);
+      return needs.filter((item) => item.userId === userId && item.type === 'donate');
     }
 
     return {

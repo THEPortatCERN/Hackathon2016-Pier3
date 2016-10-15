@@ -6,12 +6,12 @@
   app.factory('needService', function () {
     var MAX_NEEDS = 2;
 
-    function setObject(key, object) {
-      localStorage.setItem(key, JSON.stringify(object));
+    function setObject(object) {
+      localStorage.setItem('hermit-crabs-needs', JSON.stringify(object));
     }
 
-    function getObject(key) {
-      return JSON.parse(localStorage.getItem(key));
+    function getObject() {
+      return JSON.parse(localStorage.getItem('hermit-crabs-needs')) || [];
     }
 
     function need(object, amount) {
@@ -19,16 +19,19 @@
       var userId = 1;
 
       // TODO: Server request!
-      var existingRequests = getObject(userId) || {};
-      if (Object.keys(existingRequests).length < MAX_NEEDS) {
-        var withAmount = angular.copy(object);
-        withAmount.amount = amount;
-        withAmount.type = 'need';
+      var existingRequests = getObject() || [];
+      var userRequests = existingRequests.filter((item) => item.userId === userId);
 
-        existingRequests[withAmount.id] = withAmount;
+      if (userRequests.length < MAX_NEEDS) {
+        var needObject = angular.copy(object);
+        needObject.amount = amount;
+        needObject.type = 'need';
+        needObject.userId = userId;
 
-        setObject(userId, existingRequests);
-        return withAmount;
+        existingRequests.push(needObject);
+
+        setObject(existingRequests);
+        return needObject;
       } else {
         alert(`You can request up to ${MAX_NEEDS} skills or resources. Please prioritize.`);
         return object;
@@ -40,36 +43,28 @@
       var userId = 1;
 
       // TODO: Server request!
-      var existingRequests = getObject(userId) || {};
-      if (object.type === 'need') {
-        delete existingRequests[object.id];
-      }
+      var existingRequests = getObject() || [];
 
-      setObject(userId, existingRequests);
+      var newRequests = existingRequests.filter((item) => {
+        return item.userId !== userId || item.id !== object.id
+      });
+
+      setObject(newRequests);
     }
 
     function needs(object) {
       // TODO: user id should be stored in a constant/service.
       var userId = 1;
 
-      // TODO: Server request!
-      if (!getObject(userId) || !getObject(userId)[object.id] || getObject(userId)[object.id].type !== 'need') {
-        return null;
-      }
-      return getObject(userId)[object.id];
+      return getObject().filter((item) => item.userId === userId && item.id === object.id && item.type === 'need')[0];
     }
 
     function userNeeds() {
       // TODO: user id should be stored in a constant/service.
       var userId = 1;
 
-      // TODO: Server request!
-      if (!getObject(userId)) {
-        return [];
-      }
-
       var needs = getObject(userId);
-      return Object.keys(needs).filter((key) => needs[key].type === 'need').map((key) => needs[key]);
+      return needs.filter((item) => item.userId === userId && item.type === 'need');
     }
 
     return {
