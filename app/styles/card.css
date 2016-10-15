@@ -12,6 +12,16 @@
   background: #00a600 url('../images/give.png') center / cover;
 }
 
+.demo-card-image.mdl-card.card-female {
+  background: #ff4fc1 url('../images/female.png') no-repeat center;
+  background-size: 80%;
+}
+
+.demo-card-image.mdl-card.card-male {
+  background: #0051e0 url('../images/male.png') no-repeat center;
+  background-size: 70%;
+}
+
 .card-button {
   width: 256px;
   margin: 1rem auto;

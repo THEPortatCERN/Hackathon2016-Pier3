@@ -7,8 +7,15 @@
     this.vm = {};
     var vm = this.vm;
 
-    vm.submit = function (loginForm) {
-      console.log(loginForm);
+    // No backend yet.
+    function signIn(user) {
+      return true;
+    }
+
+    vm.submit = function (user) {
+      if (signIn(user)) {
+        $location.url('home');
+      }
     };
 
     vm.register = function () {
