@@ -1,7 +1,7 @@
 (function (angular, componentHandler) {
   'use strict';
 
-  var app = angular.module('hermitCrabs', ['ngRoute']);
+  var app = angular.module('hermitCrabs', ['ngRoute', 'ngAnimate']);
 
   app.config(function ($routeProvider) {
     $routeProvider

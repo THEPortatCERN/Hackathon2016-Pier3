@@ -1,0 +1,29 @@
+@keyframes slideOutLeft {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.ng-enter, .ng-leave {
+  position: absolute;
+  /*TODO: remove this hardcoding. Use MDL.*/
+  top: 56px;
+}
+
+.ng-enter {
+  animation: slideInRight 0.5s both ease-in;
+}
+
+.ng-leave {
+  animation: slideOutLeft 0.5s both ease-in;
+}
+
