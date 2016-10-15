@@ -1,4 +1,4 @@
-(function (angular) {
+(function (angular, componentHandler) {
   'use strict';
 
   var app = angular.module('hermitCrabs', ['ngRoute']);
@@ -37,4 +37,12 @@
       });
   });
 
-})(window.angular);
+  app.run(function ($rootScope, $location, $timeout) {
+    $rootScope.$on('$viewContentLoaded', function () {
+      $timeout(function () {
+        componentHandler.upgradeAllRegistered();
+      });
+    });
+  });
+
+})(window.angular, window.componentHandler);

@@ -27,9 +27,15 @@
                    ng-model="register.vm.user.passwordRepeat"
                    ng-required="register.vm.stepNames[register.vm.step] === 'username'">
           </div>
-          <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">
-            Next
-          </button>
+          <div class="button-container">
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="register.vm.back()"
+                    type="button">
+              Back
+            </button>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">
+              Next
+            </button>
+          </div>
         </div>
 
         <div ng-show="register.vm.stepNames[register.vm.step] === 'gender'">

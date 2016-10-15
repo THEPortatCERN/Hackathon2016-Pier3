@@ -42,6 +42,8 @@
     vm.back = function () {
       if (vm.step - 1 >= 0) {
         vm.step -= 1;
+      } else {
+        $location.url('/');
       }
     };
   });
