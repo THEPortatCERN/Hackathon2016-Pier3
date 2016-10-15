@@ -3,26 +3,19 @@
 
   var app = angular.module('hermitCrabs');
 
-  app.controller('needCategoryController', function ($routeParams, needService) {
+  app.controller('needCategoryController', function ($routeParams, needService, categoryService) {
     this.vm = {};
     var vm = this.vm;
 
-    vm['food-water'] = {};
-
-    vm['food-water'].items = [
-      {id: 'baby-food', name: 'Baby Food', icon: 'food-water.png', unit: 'kg', amount: 0},
-      {id: 'food', name: 'Regular Food', icon: 'food-water.png', unit: 'kg', amount: 0},
-      {id: 'special-food', name: 'Special Food', icon: 'food-water.png', unit: 'kg', amount: 0},
-      {id: 'water', name: 'Water', icon: 'needs-water.png', unit: 'liters', amount: 0}
-    ];
-
-    vm['food-water'].items.forEach(function (item) {
-      if (needService.needs(item)) {
-        item.amount = needService.needs(item).amount
-      }
-    });
-
-    vm.items = (this.vm[$routeParams.category] || {items: []}).items;
+    vm.items = (function () {
+      var subcategories = categoryService.getSubcategories($routeParams.category);
+      subcategories.forEach(function (item) {
+        if (needService.needs(item)) {
+          item.amount = needService.needs(item).amount
+        }
+      });
+      return subcategories;
+    })();
 
     function imagePath(folder, filename) {
       var path = 'url';

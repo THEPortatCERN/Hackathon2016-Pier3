@@ -3,16 +3,11 @@
 
   var app = angular.module('hermitCrabs');
 
-  app.controller('needController', function ($location) {
+  app.controller('needController', function ($location, categoryService) {
     this.vm = {};
     var vm = this.vm;
 
-    vm.items = [
-      {id: 'food-water', name: 'Food / Water', icon: 'food-water.png'},
-      {id: 'shelter', name: 'Shelter', icon: 'shelter.png'},
-      {id: 'first-aid', name: 'First Aid', icon: 'first-aid.png'},
-      {id: 'sanitation', name: 'Sanitation', icon: 'sanitation.png'}
-    ];
+    vm.items = categoryService.getCategories();
 
     function imagePath(folder, filename) {
       var path = 'url';
