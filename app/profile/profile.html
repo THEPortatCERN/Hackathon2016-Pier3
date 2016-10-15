@@ -1,17 +1,25 @@
-<div class="mdl-layout mdl-js-layout">
-  <main class="mdl-layout__content">
-    <section class="section--center form-container">
-      <div class="demo-card-image mdl-card mdl-shadow--2dp card-logo"></div>
-      <ul class="demo-list-item mdl-list">
-        <li class="mdl-list__item" ng-repeat="category in profile.vm.needs">
-          <span class="mdl-list__item-primary-content">
-            {{category.name}}
-          </span>
-          <span class="mdl-list__item-secondary-content">
-            {{category.amount}}
-          </span>
-        </li>
-      </ul>
-    </section>
-  </main>
-</div>
+<section class="section--center form-container">
+  <div class="demo-card-image mdl-card mdl-shadow--2dp card-logo"></div>
+  <h4 ng-show="profile.vm.needs.length > 0">I Need</h4>
+  <ul class="demo-list-item mdl-list">
+    <li class="mdl-list__item" ng-repeat="category in profile.vm.needs">
+      <span class="mdl-list__item-primary-content">
+        {{category.name}}
+      </span>
+      <span class="mdl-list__item-secondary-content">
+        {{category.amount}}
+      </span>
+    </li>
+  </ul>
+  <h4 ng-show="profile.vm.donations.length > 0">I'm donating</h4>
+  <ul class="demo-list-item mdl-list">
+    <li class="mdl-list__item" ng-repeat="category in profile.vm.donations">
+      <span class="mdl-list__item-primary-content">
+        {{category.name}}
+      </span>
+      <span class="mdl-list__item-secondary-content">
+        {{category.amount}}
+      </span>
+    </li>
+  </ul>
+</section>

@@ -3,7 +3,7 @@
 
   var app = angular.module('hermitCrabs');
 
-  app.controller('needCategoryController', function ($routeParams, needService) {
+  app.controller('haveCategoryController', function ($routeParams, haveService) {
     this.vm = {};
     var vm = this.vm;
 
@@ -13,12 +13,12 @@
       {id: 'baby-food', name: 'Baby Food', icon: 'food-water.png', unit: 'kg', amount: 0},
       {id: 'food', name: 'Regular Food', icon: 'food-water.png', unit: 'kg', amount: 0},
       {id: 'special-food', name: 'Special Food', icon: 'food-water.png', unit: 'kg', amount: 0},
-      {id: 'water', name: 'Water', icon: 'needs-water.png', unit: 'liters', amount: 0}
+      {id: 'water', name: 'Water', icon: 'haves-water.png', unit: 'liters', amount: 0}
     ];
 
     vm['food-water'].items.forEach(function (item) {
-      if (needService.needs(item)) {
-        item.amount = needService.needs(item).amount
+      if (haveService.donates(item)) {
+        item.amount = haveService.donates(item).amount
       }
     });
 
@@ -39,24 +39,24 @@
       return {'background-image': imagePath('../images', iconName)};
     };
 
-    function need(item) {
-      var amount = prompt(`How many ${item.unit} of ${item.name} do you need?`);
+    function donate(item) {
+      var amount = prompt(`How many ${item.unit} of ${item.name} do you have?`);
       if (amount) {
-        var savedNeed = needService.need(item, amount);
-        item.amount = savedNeed.amount;
+        var savedHave = haveService.donate(item, amount);
+        item.amount = savedHave.amount;
       }
     }
 
-    function removeNeed(item) {
-      needService.removeNeed(item);
+    function removeDonation(item) {
+      haveService.removeDonation(item);
       item.amount = 0;
     }
 
-    vm.toggleNeed = function (item) {
+    vm.toggleDonation = function (item) {
       if (item.amount > 0) {
-        removeNeed(item);
+        removeDonation(item);
       } else {
-        need(item);
+        donate(item);
       }
     }
   });

@@ -3,11 +3,11 @@
 
   var app = angular.module('hermitCrabs');
 
-  app.directive('locationDirective', function () {
+  app.directive('trackLocation', function () {
     return {
       restrict: 'A',
       scope: {
-        location: '=locationDirective'
+        location: '=trackLocation'
       },
       template: `
         <button class="mdl-button mdl-js-button mdl-button--raised" ng-click="enableLocation()"

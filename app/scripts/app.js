@@ -30,6 +30,11 @@
         controller: 'haveController',
         controllerAs: 'have'
       })
+      .when('/have/:category', {
+        templateUrl: 'haveCategory/haveCategory.html',
+        controller: 'haveCategoryController',
+        controllerAs: 'have'
+      })
       .when('/need', {
         templateUrl: 'need/need.html',
         controller: 'needController',

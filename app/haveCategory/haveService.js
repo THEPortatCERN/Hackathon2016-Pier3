@@ -3,9 +3,7 @@
 
   var app = angular.module('hermitCrabs');
 
-  app.factory('needService', function () {
-    var MAX_NEEDS = 2;
-
+  app.factory('haveService', function () {
     function setObject(key, object) {
       localStorage.setItem(key, JSON.stringify(object));
     }
@@ -14,52 +12,47 @@
       return JSON.parse(localStorage.getItem(key));
     }
 
-    function need(object, amount) {
+    function donate(object, amount) {
       // TODO: user id should be stored in a constant/service.
       var userId = 1;
 
       // TODO: Server request!
       var existingRequests = getObject(userId) || {};
-      if (Object.keys(existingRequests).length < MAX_NEEDS) {
-        var withAmount = angular.copy(object);
-        withAmount.amount = amount;
-        withAmount.type = 'need';
+      var withAmount = angular.copy(object);
+      withAmount.amount = amount;
+      withAmount.type = 'donate';
 
-        existingRequests[withAmount.id] = withAmount;
+      existingRequests[withAmount.id] = withAmount;
 
-        setObject(userId, existingRequests);
-        return withAmount;
-      } else {
-        alert(`You can request up to ${MAX_NEEDS} skills or resources. Please prioritize.`);
-        return object;
-      }
+      setObject(userId, existingRequests);
+      return withAmount;
     }
 
-    function removeNeed(object) {
+    function removeDonate(object) {
       // TODO: user id should be stored in a constant/service.
       var userId = 1;
 
       // TODO: Server request!
       var existingRequests = getObject(userId) || {};
-      if (object.type === 'need') {
+      if (object.type === 'donate') {
         delete existingRequests[object.id];
       }
 
       setObject(userId, existingRequests);
     }
 
-    function needs(object) {
+    function donates(object) {
       // TODO: user id should be stored in a constant/service.
       var userId = 1;
 
       // TODO: Server request!
-      if (!getObject(userId) || !getObject(userId)[object.id] || getObject(userId)[object.id].type !== 'need') {
+      if (!getObject(userId) || !getObject(userId)[object.id] || getObject(userId)[object.id].type !== 'donate') {
         return null;
       }
       return getObject(userId)[object.id];
     }
 
-    function userNeeds() {
+    function userDonates() {
       // TODO: user id should be stored in a constant/service.
       var userId = 1;
 
@@ -68,15 +61,15 @@
         return [];
       }
 
-      var needs = getObject(userId);
-      return Object.keys(needs).filter((key) => needs[key].type === 'need').map((key) => needs[key]);
+      var donates = getObject(userId);
+      return Object.keys(donates).filter((key) => donates[key].type === 'donate').map((key) => donates[key]);
     }
 
     return {
-      need: need,
-      removeNeed: removeNeed,
-      needs: needs,
-      userNeeds: userNeeds
+      donate: donate,
+      removeDonate: removeDonate,
+      donates: donates,
+      userDonates: userDonates
     };
   });
 

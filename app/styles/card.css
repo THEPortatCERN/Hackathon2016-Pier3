@@ -36,7 +36,8 @@
 }
 
 .demo-card-image.mdl-card.card-category {
-  background: #ffffff center / cover;
+  background: #ffffff no-repeat center;
+  background-size: 100%;
 }
 
 .card-category .check {

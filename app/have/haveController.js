@@ -3,18 +3,15 @@
 
   var app = angular.module('hermitCrabs');
 
-  app.controller('haveController', function () {
+  app.controller('haveController', function ($location) {
     this.vm = {};
     var vm = this.vm;
 
-    vm.mainItems = [
+    vm.items = [
       {id: 'food-water', name: 'Food / Water', icon: 'food-water.png'},
-      {id: 'shelter', name: 'Shelter', icon: 'shelter.png'}
-    ];
-
-    vm.secondaryItems = [
-      {id: 'sanitation', name: 'Sanitation', icon: 'sanitation.png'},
-      {id: 'family-tracing', name: 'Family Tracing', icon: 'sanitation.png'}
+      {id: 'shelter', name: 'Shelter', icon: 'shelter.png'},
+      {id: 'first-aid', name: 'First Aid', icon: 'first-aid.png'},
+      {id: 'sanitation', name: 'Sanitation', icon: 'sanitation.png'}
     ];
 
     function imagePath(folder, filename) {
@@ -32,6 +29,9 @@
       return {'background-image': imagePath('../images', iconName)};
     };
 
+    vm.needCategory = function (categoryId) {
+      $location.url('have/' + categoryId);
+    };
   });
 
 })(window.angular);
