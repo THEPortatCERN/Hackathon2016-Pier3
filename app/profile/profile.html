@@ -1,0 +1,17 @@
+<div class="mdl-layout mdl-js-layout">
+  <main class="mdl-layout__content">
+    <section class="section--center form-container">
+      <div class="demo-card-image mdl-card mdl-shadow--2dp card-logo"></div>
+      <ul class="demo-list-item mdl-list">
+        <li class="mdl-list__item" ng-repeat="category in profile.vm.needs">
+          <span class="mdl-list__item-primary-content">
+            {{category.name}}
+          </span>
+          <span class="mdl-list__item-secondary-content">
+            {{category.amount}}
+          </span>
+        </li>
+      </ul>
+    </section>
+  </main>
+</div>

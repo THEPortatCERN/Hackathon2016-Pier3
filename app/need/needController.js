@@ -10,7 +10,7 @@
     vm.items = [
       {id: 'food-water', name: 'Food / Water', icon: 'food-water.png'},
       {id: 'shelter', name: 'Shelter', icon: 'shelter.png'},
-      {id: 'shelter', name: 'Shelter', icon: 'shelter.png'},
+      {id: 'first-aid', name: 'First Aid', icon: 'first-aid.png'},
       {id: 'sanitation', name: 'Sanitation', icon: 'sanitation.png'}
     ];
 
