@@ -1,29 +1,34 @@
 <section class="section--center form-container">
   <div class="demo-card-image mdl-card mdl-shadow--2dp card-logo"></div>
   <div class="card-button">
-    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="profile.vm.goToMatches()" ng-show="profile.vm.matches">
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="profile.vm.goToMatches()"
+            ng-show="profile.vm.matches">
       Your matches
     </button>
   </div>
+  <hr>
   <h4 ng-show="profile.vm.needs.length > 0">I Need</h4>
   <ul class="demo-list-item mdl-list">
     <li class="mdl-list__item" ng-repeat="category in profile.vm.needs">
       <span class="mdl-list__item-primary-content">
+        <i class="material-icons mdl-list__item-icon">label</i>
         {{category.name}}
       </span>
       <span class="mdl-list__item-secondary-content">
-        {{category.amount}}
+        {{category.amount}} {{category.unit}}
       </span>
     </li>
   </ul>
+  <hr>
   <h4 ng-show="profile.vm.donations.length > 0">I'm donating</h4>
   <ul class="demo-list-item mdl-list">
     <li class="mdl-list__item" ng-repeat="category in profile.vm.donations">
       <span class="mdl-list__item-primary-content">
+        <i class="material-icons mdl-list__item-icon">label</i>
         {{category.name}}
       </span>
       <span class="mdl-list__item-secondary-content">
-        {{category.amount}}
+        {{category.amount}} {{category.unit}}
       </span>
     </li>
   </ul>
