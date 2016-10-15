@@ -2,28 +2,25 @@
   <form ng-submit="register.vm.next(registerForm)" name="registerForm">
     <div ng-show="register.vm.stepNames[register.vm.step] === 'username'">
       <div class="mdl-textfield mdl-js-textfield">
-        <label class="mdl-textfield__label" for="email">Email</label>
-        <input class="mdl-textfield__input" type="text" name="email" id="email"
-               ng-model="register.vm.user.email"
-               ng-required="register.vm.stepNames[register.vm.step] === 'username'">
+        <label class="mdl-textfield__label" for="name">Name</label>
+        <input class="mdl-textfield__input" type="text" name="name" id="name"
+               ng-model="register.vm.user.name">
+        <!--ng-required="register.vm.stepNames[register.vm.step] === 'username'">-->
       </div>
       <div class="mdl-textfield mdl-js-textfield">
         <label class="mdl-textfield__label" for="username">Username</label>
         <input class="mdl-textfield__input" type="text" name="username" id="username"
-               ng-model="register.vm.user.username"
-               ng-required="register.vm.stepNames[register.vm.step] === 'username'">
+               ng-model="register.vm.user.username">
       </div>
       <div class="mdl-textfield mdl-js-textfield">
-        <label class="mdl-textfield__label" for="password">Password</label>
-        <input class="mdl-textfield__input" type="password" name="password" id="password"
-               ng-model="register.vm.user.password"
-               ng-required="register.vm.stepNames[register.vm.step] === 'username'">
+        <label class="mdl-textfield__label" for="phone">Phone</label>
+        <input class="mdl-textfield__input" type="tel" name="phone" id="phone"
+               ng-model="register.vm.user.phone">
       </div>
       <div class="mdl-textfield mdl-js-textfield">
-        <label class="mdl-textfield__label" for="password-repeat">Repeat Password</label>
-        <input class="mdl-textfield__input" type="password" name="password-repeat" id="password-repeat"
-               ng-model="register.vm.user.passwordRepeat"
-               ng-required="register.vm.stepNames[register.vm.step] === 'username'">
+        <label class="mdl-textfield__label" for="email">Email</label>
+        <input class="mdl-textfield__input" type="email" name="email" id="email"
+               ng-model="register.vm.user.email">
       </div>
       <div class="button-container">
         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="register.vm.back()"
@@ -74,10 +71,15 @@
         <input class="mdl-textfield__input" type="number" name="elderly" id="elderly"
                ng-model="register.vm.user.elderly" min="0">
       </div>
-      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="register.vm.back()"
-              type="button">
-        Back
-      </button>
+      <div class="button-container">
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="register.vm.back()"
+                type="button">
+          Back
+        </button>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">
+          Next
+        </button>
+      </div>
     </div>
 
     <div ng-show="register.vm.stepNames[register.vm.step] === 'location'">

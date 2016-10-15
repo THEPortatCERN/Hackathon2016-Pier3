@@ -11,10 +11,10 @@
     vm.stepNames = ['username', 'gender', 'group', 'location'];
 
     vm.user = {
+      name: '',
+      phone: '',
       email: '',
       username: '',
-      password: '',
-      passwordRepeat: '',
       gender: '',
       location: ''
     };
