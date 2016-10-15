@@ -4,7 +4,6 @@
   var app = angular.module('hermitCrabs');
 
   app.factory('categoryService', function () {
-    
     // TODO: HTTP Request.
     var categories = [
       {id: 'food-water', name: 'Food / Water', icon: 'food-water.png'},
