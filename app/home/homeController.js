@@ -7,12 +7,8 @@
     this.vm = {};
     var vm = this.vm;
 
-    vm.need = function () {
-      $location.url('need');
-    };
-
-    vm.have = function () {
-      $location.url('have');
+    vm.navigateTo = function (url) {
+      $location.url(url)
     };
   });
 

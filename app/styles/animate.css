@@ -20,10 +20,10 @@
 }
 
 .ng-enter {
-  animation: slideInRight 0.5s both ease-in;
+  animation: slideInRight 0.3s both ease-in;
 }
 
 .ng-leave {
-  animation: slideOutLeft 0.5s both ease-in;
+  animation: slideOutLeft 0.3s both ease-in;
 }
 
