@@ -44,10 +44,22 @@
         templateUrl: 'needCategory/needCategory.html',
         controller: 'needCategoryController',
         controllerAs: 'need'
+      })
+      .when('/confirmation', {
+        templateUrl: 'confirmation/confirmation.html',
+        controller: 'confirmationController',
+        controllerAs: 'confirmation'
+      })
+      .when('/user/:id', {
+        templateUrl: 'userInfo/userInfo.html',
+        controller: 'userInfoController',
+        controllerAs: 'user'
       });
   });
 
-  app.run(function ($rootScope, $location, $timeout) {
+  app.run(function ($rootScope, $location, $timeout, matchService) {
+    matchService.registerWatcher();
+
     $rootScope.$on('$viewContentLoaded', function () {
       $timeout(function () {
         componentHandler.upgradeAllRegistered();

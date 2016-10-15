@@ -63,15 +63,24 @@
       // TODO: user id should be stored in a constant/service.
       var userId = 1;
 
-      var needs = getObject(userId);
+      var needs = getObject();
       return needs.filter((item) => item.userId === userId && item.type === 'need');
+    }
+
+    function otherNeeds() {
+      // TODO: user id should be stored in a constant/service.
+      var userId = 1;
+
+      var needs = getObject();
+      return needs.filter((item) => item.type === 'need' && item.userId !== userId);
     }
 
     return {
       need: need,
       removeNeed: removeNeed,
       needs: needs,
-      userNeeds: userNeeds
+      userNeeds: userNeeds,
+      otherNeeds: otherNeeds
     };
   });
 

@@ -55,15 +55,23 @@
       // TODO: user id should be stored in a constant/service.
       var userId = 1;
 
-      var needs = getObject(userId);
-      return needs.filter((item) => item.userId === userId && item.type === 'donate');
+      var donations = getObject();
+      return donations.filter((item) => item.userId === userId && item.type === 'donate');
+    }
+
+    function otherDonates() {
+      // TODO: user id should be stored in a constant/service.
+      var userId = 1;
+      var donations = getObject();
+      return donations.filter((item) => item.type === 'donate' && item.userId !== userId);
     }
 
     return {
       donate: donate,
       removeDonate: removeDonate,
       donates: donates,
-      userDonates: userDonates
+      userDonates: userDonates,
+      otherDonates: otherDonates
     };
   });
 
