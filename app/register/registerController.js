@@ -8,7 +8,7 @@
     var vm = this.vm;
 
     vm.step = 0;
-    vm.stepNames = ['username', 'gender', 'location'];
+    vm.stepNames = ['username', 'gender', 'group', 'location'];
 
     vm.user = {
       email: '',

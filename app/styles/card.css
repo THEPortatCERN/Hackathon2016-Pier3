@@ -88,3 +88,15 @@
 }
 
 /* End card container layout */
+
+.card-lost-person img {
+  width: 100%;
+}
+
+.mdl-demo .mdl-card .mdl-card__supporting-text {
+  padding: 15px;
+  align-self: center;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}

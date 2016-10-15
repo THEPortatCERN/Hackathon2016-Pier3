@@ -53,6 +53,33 @@
       </button>
     </div>
 
+    <div ng-show="register.vm.stepNames[register.vm.step] === 'group'">
+      <div class="mdl-textfield mdl-js-textfield">
+        <label class="mdl-textfield__label" for="babies">Number of babies</label>
+        <input class="mdl-textfield__input" type="number" name="babies" id="babies"
+               ng-model="register.vm.user.babies" min="0">
+      </div>
+      <div class="mdl-textfield mdl-js-textfield">
+        <label class="mdl-textfield__label" for="children">Number of children</label>
+        <input class="mdl-textfield__input" type="number" name="children" id="children"
+               ng-model="register.vm.user.children" min="0">
+      </div>
+      <div class="mdl-textfield mdl-js-textfield">
+        <label class="mdl-textfield__label" for="adults">Number of adults</label>
+        <input class="mdl-textfield__input" type="number" name="adults" id="adults"
+               ng-model="register.vm.user.adults" min="0">
+      </div>
+      <div class="mdl-textfield mdl-js-textfield">
+        <label class="mdl-textfield__label" for="elderly">Number of elderly</label>
+        <input class="mdl-textfield__input" type="number" name="elderly" id="elderly"
+               ng-model="register.vm.user.elderly" min="0">
+      </div>
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="register.vm.back()"
+              type="button">
+        Back
+      </button>
+    </div>
+
     <div ng-show="register.vm.stepNames[register.vm.step] === 'location'">
       <div track-location="register.vm.user.location"></div>
       <div class="button-container">

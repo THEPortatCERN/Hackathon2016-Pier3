@@ -54,6 +54,16 @@
         templateUrl: 'userInfo/userInfo.html',
         controller: 'userInfoController',
         controllerAs: 'user'
+      })
+      .when('/lost', {
+        templateUrl: 'lost/lostList.html',
+        controller: 'lostListController',
+        controllerAs: 'lost'
+      })
+      .when('/lost/report', {
+        templateUrl: 'lost/reportLost.html',
+        controller: 'reportLostController',
+        controllerAs: 'lost'
       });
   });
 
