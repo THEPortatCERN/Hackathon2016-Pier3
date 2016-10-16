@@ -1,4 +1,4 @@
-(function (angular, componentHandler) {
+(function (angular, componentHandler, localStorage) {
   'use strict';
 
   var app = angular.module('hermitCrabs', ['ngRoute', 'ngAnimate']);
@@ -77,4 +77,21 @@
     });
   });
 
-})(window.angular, window.componentHandler);
+  // TODO: DEMO SCENARIO SETUP
+  app.run(function () {
+    var donations = [{
+      id: 'canned_food',
+      name: 'Canned Food',
+      icon: 'canned_food.png',
+      unit: 'kg',
+      amount: 1,
+      folder: 'food_water',
+      type: 'donate',
+      userId: 2
+    }];
+
+    localStorage.setItem('hermit-crabs-needs', null);
+    localStorage.setItem('hermit-crabs-donates', JSON.stringify(donations));
+  });
+
+})(window.angular, window.componentHandler, window.localStorage);

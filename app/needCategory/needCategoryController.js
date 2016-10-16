@@ -34,11 +34,10 @@
     };
 
     function need(item) {
-      var amount = prompt(`How many ${item.unit} of ${item.name} do you need?`);
-      if (amount) {
-        var savedNeed = needService.need(item, amount);
-        item.amount = savedNeed.amount;
-      }
+      // TODO: Scale it up using family info.
+      var amount = 1;
+      var savedNeed = needService.need(item, amount);
+      item.amount = savedNeed.amount;
     }
 
     function removeNeed(item) {

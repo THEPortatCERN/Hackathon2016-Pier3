@@ -7,25 +7,23 @@
     function userCanDonate() {
       var otherNeeds = needService.otherNeeds();
       var userDonates = haveService.userDonates();
-      var matches = userDonates.filter((donate) => {
+
+      return userDonates.filter((donate) => {
         return otherNeeds.filter((need) => {
             return need.id === donate.id
           }).length > 0
       });
-
-      return matches;
     }
 
     function userCanReceive() {
-      var userNeeds = haveService.otherDonates();
-      var otherDonates = needService.userNeeds();
-      var matches = otherDonates.filter((need) => {
+      var otherDonates = haveService.otherDonates();
+      var userNeeds = needService.userNeeds();
+
+      return otherDonates.filter((need) => {
         return userNeeds.filter((donate) => {
             return need.id === donate.id
           }).length > 0
       });
-
-      return matches;
     }
 
     function userMatches() {

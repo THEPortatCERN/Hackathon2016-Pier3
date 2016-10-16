@@ -14,11 +14,11 @@
         location: '48.392738,14.062500'
       },
       2: {
-        username: 'batigol',
-        name: 'Gabriel Batistuta',
-        email: 'gabriel.batistuta@gmail.com',
+        username: 'HelpingHand',
+        name: 'Good Samaritan',
+        email: 'helping.hand@gmail.com',
         phone: '541187898765',
-        location: '47.392738,15.062500'
+        location: '-34.567382,-58.458784'
       }
     };
 

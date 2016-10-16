@@ -11,7 +11,7 @@
       },
       template: `
         <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title" ng-click="navigateTo('home')">EMBRACE</span>
+          <span class="mdl-layout-title" ng-click="navigateTo('home')">embrace</span>
           <div class="mdl-layout-spacer"></div>
           <nav class="mdl-navigation">
             <a class="mdl-navigation__link" ng-click="navigateTo('profile')">Profile</a>

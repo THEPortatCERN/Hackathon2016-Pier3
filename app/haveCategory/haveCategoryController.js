@@ -34,11 +34,10 @@
     };
 
     function donate(item) {
-      var amount = prompt(`How many ${item.unit} of ${item.name} do you have?`);
-      if (amount) {
-        var savedHave = haveService.donate(item, amount);
-        item.amount = savedHave.amount;
-      }
+      // TODO: Scale it up using family info.
+      var amount = 1;
+      var savedHave = haveService.donate(item, amount);
+      item.amount = savedHave.amount;
     }
 
     function removeDonation(item) {

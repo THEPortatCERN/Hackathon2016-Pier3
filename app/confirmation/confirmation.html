@@ -5,14 +5,14 @@
     <thead>
     <tr>
       <th class="mdl-data-table__cell--non-numeric">Resource</th>
-      <th>Quantity</th>
+      <!--<th>Quantity</th>-->
       <th>To</th>
     </tr>
     </thead>
     <tbody>
     <tr ng-repeat="item in confirmation.vm.donations" ng-click="confirmation.vm.showUser(item.userId)">
       <td class="mdl-data-table__cell--non-numeric">{{item.name}}</td>
-      <td>{{item.amount}} {{item.units}}</td>
+      <!--<td>{{item.amount}} {{item.units}}</td>-->
       <td class="mdl-data-table__cell--non-numeric">{{confirmation.vm.userInfo(item.userId).username}}</td>
     </tr>
     </tbody>
@@ -22,14 +22,14 @@
     <thead>
     <tr>
       <th class="mdl-data-table__cell--non-numeric">Resource</th>
-      <th>Quantity</th>
+      <!--<th>Quantity</th>-->
       <th>From</th>
     </tr>
     </thead>
     <tbody>
     <tr ng-repeat="item in confirmation.vm.receptions" ng-click="confirmation.vm.showUser(item.userId)">
       <td class="mdl-data-table__cell--non-numeric">{{item.name}}</td>
-      <td>{{item.amount}} {{item.units}}</td>
+      <!--<td>{{item.amount}} {{item.units}}</td>-->
       <td class="mdl-data-table__cell--non-numeric">{{confirmation.vm.userInfo(item.userId).username}}</td>
     </tr>
     </tbody>

@@ -4,7 +4,7 @@
   var app = angular.module('hermitCrabs');
 
   app.factory('needService', function () {
-    var MAX_NEEDS = 2;
+    var MAX_NEEDS = 5;
 
     function setObject(object) {
       localStorage.setItem('hermit-crabs-needs', JSON.stringify(object));
