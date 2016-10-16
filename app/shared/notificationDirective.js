@@ -28,7 +28,7 @@
           notificationActive = true;
           var data = {
             message: 'You have a match!',
-            timeout: 15 * 1000,
+            timeout: 5 * 1000,
             actionHandler: goToConfirmation,
             actionText: 'Show'
           };
@@ -39,7 +39,7 @@
           if (!notificationActive && notificationService.hasNotification()) {
             showNotification();
           }
-        }, 10 * 1000);
+        }, 3 * 1000);
       }
     };
   });

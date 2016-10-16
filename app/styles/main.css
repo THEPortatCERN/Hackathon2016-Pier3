@@ -25,6 +25,14 @@ html, body {
   padding: 0;
 }
 
+header {
+  background-color: #333!important;
+}
+
+.mdl-snackbar {
+  bottom: -1px;
+}
+
 .mdl-demo .mdl-layout__header-row {
   padding-left: 40px;
 }
