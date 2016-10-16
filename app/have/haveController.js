@@ -14,14 +14,15 @@
       path += '(';
       path += folder;
       path += '/';
+      path += '[needs]';
       path += filename;
       path += ')';
 
       return path
     }
 
-    vm.iconPath = function (iconName) {
-      return {'background-image': imagePath('../images', iconName)};
+    vm.iconPath = function (category) {
+      return {'background-image': imagePath(`../images/${category.folder}`, category.icon)};
     };
 
     vm.needCategory = function (categoryId) {

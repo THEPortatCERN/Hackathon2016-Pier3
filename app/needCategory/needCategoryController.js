@@ -22,14 +22,15 @@
       path += '(';
       path += folder;
       path += '/';
+      path += '[have]';
       path += filename;
       path += ')';
 
       return path
     }
 
-    vm.iconPath = function (iconName) {
-      return {'background-image': imagePath('../images', iconName)};
+    vm.iconPath = function (category) {
+      return {'background-image': imagePath(`../images/${category.folder}`, category.icon)};
     };
 
     function need(item) {
